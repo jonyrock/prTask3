@@ -16,6 +16,9 @@ public class Main {
 
         String[] sourceLines = getSourceLines(args[0]);
 
+        Processor pr = new Processor(sourceLines);
+        pr.contain("asd");
+                
         
     }
 
