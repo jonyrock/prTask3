@@ -1,0 +1,5 @@
+S :  
+S : Sa
+S : Sb
+S : Ba
+B : a
