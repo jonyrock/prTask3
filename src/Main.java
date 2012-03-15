@@ -17,9 +17,9 @@ public class Main {
         String[] sourceLines = getSourceLines(args[0]);
 
         Processor pr = new Processor(sourceLines);
-        pr.contain("asd");
-                
-        
+        System.out.println(pr.contain("aaabbbbbbbbbbccccc"));
+
+
     }
 
     private static String[] getSourceLines(String sourceFile) {

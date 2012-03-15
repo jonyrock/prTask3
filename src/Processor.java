@@ -35,14 +35,13 @@ public class Processor {
 
     public boolean contain(String word) {
 
-        SortedSet<String> evalSet = new TreeSet<String>(new LengthComparator());
-
+        LinkedSortedList  evalSet = new LinkedSortedList();
+                
         evalSet.add("S");
 
-        while (evalSet.size() > 0) {
+        while (!evalSet.isEmpty()) {
 
-            String f = evalSet.first();
-            evalSet = evalSet.tailSet(evalSet.first());
+            String f = evalSet.pop();            
 
             String subNTerm = "";
 
