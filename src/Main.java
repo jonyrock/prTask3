@@ -3,15 +3,13 @@ import java.util.ArrayList;
 
 public class Main {
 
-
     public static void main(String[] args) {
 
         if (args.length < 1) {
             System.out.println("Need input file path.");
             return;
         }
-                
-        
+
         String[] sourceLines = getSourceLines(args[0]);
 
         Processor pr = new Processor(sourceLines);
@@ -23,7 +21,6 @@ public class Main {
         }
 
         System.out.println(pr.contain(args[1]));
-
 
     }
 

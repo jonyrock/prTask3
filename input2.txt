@@ -1,8 +1,10 @@
-S : 0Z
-S : 0E
-S : 1Z
-Z : 0Z
-Z : 0E
-E : 1Z
-Z :
-E :
+S : aA
+S : aB
+S : aC
+C : aa
+B : ab
+C : gS
+C : 
+S :
+S : 1
+S : 

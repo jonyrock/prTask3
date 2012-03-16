@@ -30,6 +30,15 @@ public class Processor {
             list.add(right);
             pr.put(left, list);
         }
+        
+        if(!right.isEmpty()){
+            if(Character.isUpperCase(right.charAt(0))){
+                throw new RuntimeException("Wrong expression");
+            }            
+            if(right.length() > 2){
+                throw new RuntimeException("Wrong expression");
+            }
+        }
 
     }
 

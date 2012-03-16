@@ -1,0 +1,8 @@
+digraph NFA {
+    node [shape = doublecircle]; S ⏚;
+    node [shape = circle];
+    A -> ⏚ [ label = "ε" ];
+    A -> A [ label = "c" ];
+    S -> S [ label = "a" ];
+    S -> A [ label = "b" ];
+}
