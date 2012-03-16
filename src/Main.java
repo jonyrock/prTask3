@@ -13,11 +13,15 @@ public class Main {
             System.out.println("Need input file path.");
             return;
         }
+        if (args.length == 0) {
+            System.out.println("Need word to ");
+            return;
+        }
 
         String[] sourceLines = getSourceLines(args[0]);
 
         Processor pr = new Processor(sourceLines);
-        System.out.println(pr.contain("aaabbbbbbbbbbccccc"));
+        System.out.println(pr.contain("b"));
 
 
     }

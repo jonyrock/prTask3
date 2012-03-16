@@ -1,1 +1,8 @@
-This file was created by IntelliJ IDEA 11.0.2 for binding GitHub repository
+Using: rpTask3 <INPUT_FILE> <WORD>
+Symbol S is always start 
+
+Example input.txt:
+S : aS
+S : bA
+A : 
+A : cA
