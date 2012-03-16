@@ -35,13 +35,13 @@ public class Processor {
 
     public boolean contain(String word) {
 
-        LinkedSortedList  evalSet = new LinkedSortedList();
-                
+        LinkedSortedList evalSet = new LinkedSortedList();
+
         evalSet.add("S");
 
         while (!evalSet.isEmpty()) {
 
-            String f = evalSet.pop();            
+            String f = evalSet.pop();
 
             String subNTerm = "";
 
@@ -85,20 +85,37 @@ public class Processor {
 
     }
 
+    @Override
+    public String toString() {
 
-    private class LengthComparator implements Comparator<String> {
+        StringBuilder builder = new StringBuilder();
 
-        public int compare(String s, String s1) {
+        builder.append("digraph NFA {\n");
+        builder.append("    node [shape = doublecircle]; S ⏚;\n");
+        builder.append("    node [shape = circle];\n");
+        Set<String> keys = pr.keySet();
+        
+        for(String key : keys){
             
-            if(s.length() == s1.length()){
-                return 0;
+            List<String> list = pr.get(key);
+            
+            for(String l : list){
+                
+                if(l.toLowerCase().equals(l));
+                
+                //String label = l.isEmpty()? "ε" : l;
+                //builder.append("    S -> ⏚ [ label = \"1\" ];\n");
+                
             }
-            return s.length() > s1.length() ? 1 : -1;
-
+            
         }
+        
+        //builder.append("    S -> ⏚ [ label = \"1\" ];\n");
 
+
+        builder.append("\n}");
+
+        return builder.toString();
 
     }
-
-
 }

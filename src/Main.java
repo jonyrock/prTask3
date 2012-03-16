@@ -1,7 +1,4 @@
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 
 public class Main {
@@ -9,19 +6,25 @@ public class Main {
 
     public static void main(String[] args) {
 
-        if (args.length == 0) {
+        if (args.length < 1) {
             System.out.println("Need input file path.");
             return;
         }
-        if (args.length == 0) {
-            System.out.println("Need word to ");
-            return;
-        }
-
+        
+        char c = '1';
+        System.out.println(Character.isUpperCase(c));
+        
         String[] sourceLines = getSourceLines(args[0]);
 
         Processor pr = new Processor(sourceLines);
-        System.out.println(pr.contain("b"));
+        printNFA(pr.toString());
+
+        if (args.length < 2) {
+            System.out.println("No word to check, see output.dot");
+            return;
+        }
+
+        System.out.println(pr.contain(args[1]));
 
 
     }
@@ -59,6 +62,21 @@ public class Main {
         return null;
 
 
+    }
+
+    private static void printNFA(String string) {
+
+        try {
+
+            FileWriter writer = new FileWriter("output.dot");
+            writer.write(string);
+            writer.close();
+
+        } catch (Exception e) {
+
+            System.err.println(e.getMessage());
+
+        }
     }
 
 }
