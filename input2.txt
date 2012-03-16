@@ -1,10 +1,9 @@
 S : aA
 S : aB
 S : aC
-C : aa
-B : ab
+C : a
+B : a
 C : gS
 C : 
-S :
-S : 1
 S : 
+A : m

@@ -5,22 +5,29 @@ public class Main {
 
     public static void main(String[] args) {
 
-        if (args.length < 1) {
-            System.out.println("Need input file path.");
-            return;
+        try {
+            
+            if (args.length < 1) {
+                System.out.println("Need input file path.");
+                return;
+            }
+
+            String[] sourceLines = getSourceLines(args[0]);
+
+            Processor pr = new Processor(sourceLines);
+            printNFA(pr.toString());
+
+            if (args.length < 2) {
+                System.out.println("No word to check, see output.dot");
+                return;
+            }
+
+            System.out.println(pr.contain(args[1]));
+            
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            System.exit(1);
         }
-
-        String[] sourceLines = getSourceLines(args[0]);
-
-        Processor pr = new Processor(sourceLines);
-        printNFA(pr.toString());
-
-        if (args.length < 2) {
-            System.out.println("No word to check, see output.dot");
-            return;
-        }
-
-        System.out.println(pr.contain(args[1]));
 
     }
 
