@@ -1,4 +1,4 @@
-Using: rpTask3 <INPUT_FILE> <WORD>
+Using: rpTask3 <INPUT_FILE> [WORD]
 Symbol S is always start 
 
 Example input.txt:
@@ -6,3 +6,5 @@ S : aS
 S : bA
 A : 
 A : cA
+
+See output.dot with graph
