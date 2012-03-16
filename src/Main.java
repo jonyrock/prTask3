@@ -10,9 +10,7 @@ public class Main {
             System.out.println("Need input file path.");
             return;
         }
-        
-        char c = '1';
-        System.out.println(Character.isUpperCase(c));
+                
         
         String[] sourceLines = getSourceLines(args[0]);
 

@@ -43,14 +43,8 @@ public class Processor {
 
             String f = evalSet.pop();
 
-            String subNTerm = "";
+            String subNTerm = getNTerm(f);
 
-            for (int i = 0; i < f.length(); i++) {
-                if (Character.isUpperCase(f.charAt(i))) {
-                    subNTerm = f.charAt(i) + "";
-                    break;
-                }
-            }
 
             if (!subNTerm.isEmpty()) {
 
@@ -85,6 +79,7 @@ public class Processor {
 
     }
 
+
     @Override
     public String toString() {
 
@@ -94,28 +89,47 @@ public class Processor {
         builder.append("    node [shape = doublecircle]; S ⏚;\n");
         builder.append("    node [shape = circle];\n");
         Set<String> keys = pr.keySet();
-        
-        for(String key : keys){
-            
+
+        for (String key : keys) {
+
             List<String> list = pr.get(key);
-            
-            for(String l : list){
-                
-                if(l.toLowerCase().equals(l));
-                
-                //String label = l.isEmpty()? "ε" : l;
-                //builder.append("    S -> ⏚ [ label = \"1\" ];\n");
+
+            for (String l : list) {
+
+                if (l.isEmpty()) {
+                    builder.append("    " + key + " -> ⏚ [ label = \"ε\" ];\n");
+                    continue;
+                }
+
+                String nTerm = getNTerm(l);
+
+                if (nTerm.isEmpty()) {
+                    builder.append("    " + key + " -> ⏚ [ label = \"" + l + "\" ];\n");
+                    continue;
+                }
+
+                builder.append("    " + key + " -> " + nTerm
+                        + " [ label = \"" + l.replace(nTerm, "") + "\" ];\n");
                 
             }
-            
+
         }
         
-        //builder.append("    S -> ⏚ [ label = \"1\" ];\n");
-
-
-        builder.append("\n}");
+        builder.append("}");
 
         return builder.toString();
+
+    }
+
+
+    private String getNTerm(String f) {
+
+        for (int i = 0; i < f.length(); i++) {
+            if (Character.isUpperCase(f.charAt(i))) {
+                return f.charAt(i) + "";
+            }
+        }
+        return "";
 
     }
 }
